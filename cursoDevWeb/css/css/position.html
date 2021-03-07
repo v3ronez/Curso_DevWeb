@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Position</title>
+    <style>
+        div {
+            font-size: 30px;
+            padding: 10px;
+            border: solid 4px #444;
+            color: aliceblue;
+        }
+
+        .static {
+            top: 100px;
+            left: 100px;
+            background-color: steelblue;
+        }
+
+        .fixed { /* Não se move ao mover a pag */
+           
+            position: fixed;
+            bottom: 20px;
+            right: 0px;
+            background-color: salmon;
+        }
+
+        .relative1 {
+            position: relative; /* Leva em relação o elemento anterior */
+            left: 50px;
+            top: 4px;
+            background-color: darkcyan;
+        }
+
+        .absolute1 {
+            position: absolute;
+            left: 350px;
+            top: 50px;
+            background-color: violet;
+        }
+
+        .relative2 {
+            position: relative;
+            top: 2000px;
+            left: 250px;
+            width: 200px; /* Largura */
+            height: 200px;
+            background-color: rgb(203, 255, 80);
+        }
+
+        .absolute2 {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            width: 20px;
+            height: 20px;
+            background-color: darkmagenta;
+        }
+
+        .sticky {
+            position: -webkit-sticky; /* Safari */
+            position: sticky;
+            background-color: maroon;
+            top: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="static">Static (Padrão)</div>
+    <div class="fixed">Fixed</div>
+    <div class="relative1">Relative</div>
+    <div class="absolute1">Absolute</div>
+
+    <div class="relative2">
+        <div class="absolute2"></div>
+    </div>
+
+    <div class="sticky">Sticky</div>
+    <p style="padding-bottom: 2000px;">Opa</p>
+</body>
+
+</html>

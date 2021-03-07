@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #02</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body class="conteudo exercicio">
+    <div id="primeiro">#primeiro</div>
+    <div>Segundo</div>
+    <div class="terceiro ultimo"><span wb-attrib>.terceiro .ultimo</span></div>
+    <script>              
+    document.querySelector('#primeiro').classList.add('destaque')
+
+    const select = selector => 
+         document.querySelectorAll(selector).forEach(e => e.classList.add('destaque')) //retorna um node list
+
+    const NoSelect = selector => 
+        document.querySelectorAll(selector).forEach(e => e.classList.remove('destaque'))
+
+    select('div')
+
+    NoSelect('*') //seletor universal '*'
+    select('.terceiro.ultimo') //seleciona quem tem a classe 'terceiro' e 'ultimo'
+    
+    NoSelect('*')
+    select(':not(#primeiro)') //:not pseudo classe para negar um seletor (seleciona todo mundo que nao é o primeiro)
+
+    NoSelect('*')
+    select(':nth-child(1)') //primeiro filho de algum elemento(primeiro filho do body e o primeiro filho da div)
+    
+    NoSelect('*')
+    select('div:nth-child(1)') //primeiro filho da div
+    
+    NoSelect('*')
+    select('[wb-attrib]')
+    </script>
+</body>
+</html>

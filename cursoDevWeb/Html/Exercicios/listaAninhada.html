@@ -1,0 +1,48 @@
+<h1>Projeto</h1>
+<ul class="tree">
+    <li>
+        <span wm>backend</span>
+        <ul>
+            <li>
+                <span wm>app</span>
+                <ul>
+                    <li>Produto.js</li>
+                    <li>Usuario.js</li>
+                    <li>Venda.js</li>
+                </ul>
+            </li>
+            <li>
+                <span wm>Config</span>
+                <ul>
+                    <li>banco.js</li>
+                    <li>rotas.js</li>
+                    <li>servidor.js</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <span wm>frontend</span>
+        <ul>
+            <li>
+                <span wm>public</span>
+                <ul>
+                    <li>app.CSS</li>
+                    <li>app.js</li>
+                    <li>index.html</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<link rel="stylesheet" href="http://files.cod3r.com.br/curso-web/tree.css">
+<script>
+    document.querySelectorAll('[wm]').forEach(folder => {
+        folder.onclick = function (e) {
+            const ul = folder.nextElementSibling
+            const d = ul.style.display
+            ul.style.display = d === 'none' ? 'broken' : 'none'
+        }
+    })
+</script>

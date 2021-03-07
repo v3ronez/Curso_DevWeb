@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Modificando HTML #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src='js/jquery.js'></script>
+</head>
+
+<body class='conteudo exercicio'>
+    <h1>Modificando HTML #01</h1>
+    <div id='conteudo1'></div>
+    <div id='conteudo2'></div>
+    <div id='conteudo3'></div>
+    <div>Sem ID</div>
+
+    <script>
+        //conteudo 1
+        $('#conteudo1').append('<p>1</p>')
+
+        //conteudo 2
+        const elementos = [
+            $('<li>').append('Feijão'),
+            $('<li>').append('Carne'),
+            $('<li>').append('Arroz')    // $('<li>') cria elemento $('li') seleciona elemento
+            ]
+
+        const lista = $('<ul><li>Sorvete</li></ul>').prepend(elementos) //appenda antes dos elementos que ja estavam dentro
+        $('#conteudo2').append(lista)
+
+        //conteudo 3
+        $('#conteudo3').append('<h1>1')
+            .append('<h2>2').prepend('<h1>0')
+        $('#conteudo3').html('<h1>123')
+        $('#conteudo3').text('<h1>123')
+
+        // Alterando todos.
+        $('div[id]').html('<strong>Todos!') //altera todas as divs que tem id
+    </script>
+</body>

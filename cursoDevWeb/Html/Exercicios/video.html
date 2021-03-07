@@ -1,0 +1,51 @@
+<video id="meuVideo" width="800" height="450" controls controlslist="nodownload">
+    <source src="http://files.cod3r.com.br/curso-web/video.mp4" type="video/mp4">
+    seu browser não suporta isso k k k
+</video>
+
+<div wm-progress="meuVideo" class="progress">
+    <div></div>
+
+</div>
+
+<div>
+    <button wm-play="meuVideo">Play</button>
+    <button wm-pause="meuVideo">Pause</button>
+</div>
+
+<style>
+    .progress {
+        height: 20px;
+        width: 500px;
+        border: solid 1px #444;
+        margin: 12px;
+    }
+
+    .progress>div {
+        background-color: red;
+        color: white;
+        height: 100%;
+        text-align: right;
+        font-size: 14px;
+    }
+</style>
+
+<script>
+    function videoConfig(id) {
+        const video = document.getElementById(id)
+        video.oncontextmenu = () => false
+
+        //criar botao play/pause
+        document.querySelector(`[wm-play=${id}]`).onclick = e => video.play()
+        document.querySelector(`[wm-pause=${id}]`).onclick = e => video.pause()
+
+        //criar barra de progresso
+        setInterval(() => {
+            const porcent = (video.currentTime / video.duration) * 100
+            const valueDiv = document.querySelector(`[wm-progress=${id}] > div`)
+            valueDiv.style.width = `${porcent}%`
+            valueDiv.innerHTML = `${porcent.toFixed()}%` //toFixed(1)
+        })
+    }
+    videoConfig('meuVideo')
+</script>

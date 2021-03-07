@@ -1,0 +1,67 @@
+<div wm-slider>
+    <p><img src="https://media0.giphy.com/media/krewXUB6LBja/giphy.gif" alt="" width="450" height="260">
+
+    </p>
+
+    <p><img src="https://media.tenor.com/images/e8dd8a120e0db9cdaa540bd8577f7a41/tenor.gif" alt="" width="450"
+            height="260">
+
+    </p>
+
+    <p>
+        <img src="https://pa1.narvii.com/6225/91b8efe26eaf629e4137349dca51856bfd3a2aa5_00.gif" alt="" width="400"
+            height="250">
+    </p>
+
+    <p>
+        <img src="https://thumbs.gfycat.com/OpulentThornyAmericanwigeon-size_restricted.gif" alt="" width="400"
+            height="250">
+    </p>
+    <p>
+        <img src="https://media1.tenor.com/images/39c9cf69254f7688fbd4ff5386f8f5a1/tenor.gif?itemid=8641754" alt=""
+            width="400" height="250">
+    </p>
+
+</div>
+<style>
+    p {
+        position: absolute;
+        display: none;
+    }
+</style>
+
+<script>
+    function move(elem, start, end, step, callback) {
+        const newStart = start - step
+        if (newStart >= end) {
+            elem.style.left = newStart + 'px'
+            setTimeout(() => move(elem, newStart, end, step, callback), 7)
+        } else {
+            callback()
+        }
+    }
+    function slider() {
+        const elements = document.querySelectorAll('[wm-slider] > p ')
+        const slides = Array.from(elements)
+        showSlides(slides, slides[0])
+    }
+    function showSlides(slides, slide) {
+        slide.style.display = 'block'
+
+        const startScreen = innerWidth
+        const endScreen = -slide.clientWidth
+
+        slide.style.left = `$(starScreen)px`
+
+        move(slide, startScreen, endScreen, 4, () => {
+            slide.style.display = 'none'
+            showSlides(slides, getNextSlide(slides, slide))
+        })
+    }
+
+    function getNextSlide(list, current) {
+        const i = list.indexOf(current) + 1
+        return i < list.length ? list[i] : list[0]
+    }
+    slider()
+</script>
